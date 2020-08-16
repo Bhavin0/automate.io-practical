@@ -1,0 +1,54 @@
+<div class="pr-container">
+    <mat-toolbar color="primary" class="pr-toolbar">
+        <button mat-icon-button (click)="snav.toggle();isNavOpen = !isNavOpen">
+            <mat-icon>
+                view_headline
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="removeNote()">
+            <mat-icon>
+                delete_outline
+            </mat-icon>
+        </button>
+        <button mat-icon-button (click)="createOrUpdateNote()">
+            <mat-icon>
+                edit
+            </mat-icon>
+        </button>
+        <mat-form-field class="form-field">
+            <input matInput type="text" [(ngModel)]="search" (input)="manageSearch()" />
+            <button mat-button *ngIf="search" matSuffix mat-icon-button aria-label="Clear" (click)="search=''"
+                placeholder="search">
+            </button>
+        </mat-form-field>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="pr-sidenav-container">
+        <mat-sidenav #snav [mode]="'side'" [opened]="isNavOpen">
+            <mat-nav-list>
+                <a mat-list-item routerLink="." *ngFor="let nt of notes;" class="text-capitalize"
+                    (click)="selectNote(nt)" [ngClass]="{'nav-active': nt.id==note.id}">
+                    <p>
+                        <strong>
+                            {{nt.title || 'New Note' }}
+                        </strong>
+                        <br />
+                        {{nt.description}}
+                        <br />
+                        {{nt.created | date:'h:mm a'}}
+                    </p>
+                </a>
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <p *ngIf="note.id">
+                <br>
+                {{note.created | date:'MMMM d, y'}} at {{note.created | date:'h:mm a'}}
+            </p>
+            <div class="note-title">
+                <textarea [(ngModel)]="note.title" class="note-text"></textarea>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
