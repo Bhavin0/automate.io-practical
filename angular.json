@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-practical": {
+    "automate.io-practical": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-practical",
+            "outputPath": "dist/automate.io-practical",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -66,18 +66,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-practical:build"
+            "browserTarget": "automate.io-practical:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-practical:build:production"
+              "browserTarget": "automate.io-practical:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-practical:build"
+            "browserTarget": "automate.io-practical:build"
           }
         },
         "test": {
@@ -114,15 +114,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-practical:serve"
+            "devServerTarget": "automate.io-practical:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-practical:serve:production"
+              "devServerTarget": "automate.io-practical:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-practical"
+  "defaultProject": "automate.io-practical"
 }
